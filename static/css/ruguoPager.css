@@ -1,0 +1,19 @@
+/* CSS Document */
+.ruguoPager_red{ padding:40px 50px;padding-left: 220px; list-style:none; text-decoration:none;  font-size:16px; outline:none;}
+.ruguoPager_red{ width:1000px;margin: 0px 20px 0px auto;}
+.ruguoPager_red ul{ float:left;}
+.ruguoPager_red ul li{ float:left; display:inline;}
+.ruguoPager_red a{font-size:16px; text-decoration:none;}
+
+.ruguoPager_red .infos{ float:left; display:inline;font-size:16px;}
+.ruguoPager_red .infos li{ margin-right:3px; color:Black;}
+.ruguoPager_red .infos span{ margin:0px 1px; font-weight:bold;color:black;}
+
+.ruguoPager_red .btns{ margin-left:10px; margin-top:3px;}
+.ruguoPager_red .btns li { float:left; display:inline; margin:0px 2px;}
+.ruguoPager_red .btns li a{ padding:2px 8px; cursor:pointer; color:Black;}
+.ruguoPager_red .btns li a:hover{ color:#FFF; background:Black;}
+.ruguoPager_red .btns .curr a{ color:#FFF; background:Black;}
+.ruguoPager_red .goto{ margin-left:10px;}
+.ruguoPager_red .goto input{ float:left; border:1px solid Black; display:inline; width:35px; height:21px; text-align:center;}
+.ruguoPager_red .goto a{ float:left; display:inline; padding:2px 8px; cursor:pointer; color:#000; margin-left:5px; }

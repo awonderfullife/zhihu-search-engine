@@ -1,0 +1,197 @@
+<html>
+<head>
+
+
+    <!--<link type="text/css" rel="stylesheet" href="/static/css/materialize.css"  media="screen,projection"/>-->
+    <link rel="stylesheet" href="/static/css/material.indigo-purple.min.css">
+    <!--<script type="text/javascript" src="/static/js/materialize.js"></script>-->
+
+    <script defer src="/static/js/material.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end support for Zhihu Search.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Home - Hooli Search</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Hooli Search">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+
+    <link rel="stylesheet"
+          href="https://fonts.lug.ustc.edu.cn/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.lug.ustc.edu.cn/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/static/css/material.deep_purple-pink.min.css">
+    <link rel="stylesheet" href="/static/css/material-design-search-bar-palette.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="/static/js/material.min.js"></script>
+
+    <script defer src="/static/js/script.js"></script>
+
+    <script defer src="/static/js/stat_graphs.js"></script>
+
+    <script src="/static/js/jQuery.js"></script>
+</head>
+<body class="mdl-zhihu-search mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-layout__header--scroll search-header">
+
+        <div class="mdl-layout__header-row search-header-row">
+            <div class="mdl-textfield mdl-js-textfield search-field">
+                <div class="mdl-layout__header-row">
+                    <span class="mdl-layout-title">纸糊搜索</span>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="mdl-layout__header-row search-header-row">
+
+
+            <!--</div>-->
+            <div class=" mdl-textfield mdl-js-textfield search-field ">
+                <input class="mdl-textfield__input search-field-input" type="text" id="content"
+                       onkeydown="if(event.keyCode==13){on_initialize_new_search();}">
+            </div>
+
+            <div class="search-button-container">
+                <i class="material-icons icon-button">search</i>
+                <i class="material-icons icon-button" onclick="askForImageResult()">cloud_upload</i>
+            </div>
+            <div class="">
+
+                <!--<label class="search-text-button"><i class="material-icons search-text-icon-button">search</i></label>-->
+                <!--<label class="search-picture-button"><i class="material-icons">cloud_upload</i></label>-->
+                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect search-switch" for="switch-database">
+                    <input type="checkbox" id="switch-database" class="mdl-switch__input">
+                    <span class="mdl-switch__label">采用数据库指令</span>
+                </label>
+            </div>
+
+
+        </div>
+
+        <div class="mdl-layout__header-row search-header-row">
+
+
+            <div class="type-select-boxes">
+
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect search-checkbox"
+                       for="checkbox-question">
+                    <input type="checkbox" id="checkbox-question" class="mdl-checkbox__input" checked>
+                    <span class="mdl-checkbox__label">问题</span>
+                </label>
+
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect search-checkbox" for="checkbox-answer">
+                    <input type="checkbox" id="checkbox-answer" class="mdl-checkbox__input" checked>
+                    <span class="mdl-checkbox__label">答案</span>
+                </label>
+
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect search-checkbox" for="checkbox-user">
+                    <input type="checkbox" id="checkbox-user" class="mdl-checkbox__input" checked>
+                    <span class="mdl-checkbox__label">用户</span>
+                </label>
+
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect search-checkbox" for="checkbox-article">
+                    <input type="checkbox" id="checkbox-article" class="mdl-checkbox__input" checked>
+                    <span class="mdl-checkbox__label">文章</span>
+                </label>
+
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect search-checkbox" for="checkbox-topic">
+                    <input type="checkbox" id="checkbox-topic" class="mdl-checkbox__input" checked>
+                    <span class="mdl-checkbox__label">话题</span>
+                </label>
+
+            </div>
+
+            <div class="sort-select-boxes">
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect search-radio" for="option-1">
+                    <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+                    <span class="mdl-radio__label">日期优先</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect search-radio" for="option-2">
+                    <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                    <span class="mdl-radio__label">相关度优先</span>
+                </label>
+
+            </div>
+
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-database">
+                <input type="checkbox" id="switch-database" class="mdl-switch__input">
+                <span class="mdl-switch__label">采用数据库指令</span>
+            </label>
+
+        </div>
+
+        <!-- Tabs -->
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+            <a href="#scroll-tab-1" class="mdl-layout__tab is-active">所有内容</a>
+            <a href="#scroll-tab-2" class="mdl-layout__tab">问题</a>
+            <a href="#scroll-tab-3" class="mdl-layout__tab">答案</a>
+            <a href="#scroll-tab-4" class="mdl-layout__tab">用户</a>
+            <a href="#scroll-tab-5" class="mdl-layout__tab">文章</a>
+            <a href="#scroll-tab-6" class="mdl-layout__tab">话题</a>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">纸糊搜索</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="">首页</a>
+            <a class="mdl-navigation__link" href="">使用教程</a>
+            <a class="mdl-navigation__link" href="">设置</a>
+            <a class="mdl-navigation__link" href="">关于我们</a>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+        <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+            <section class="result-loading-animation">
+                <div class="mdl-spinner mdl-js-spinner is-active"></div>
+            </section>
+
+			<section id="image-result" class="search-result">
+			            <div id="image-total-result" class="mdl-grid"></div>
+			</section>
+
+
+
+            <section id="total-result" class="search-result">
+            </section>
+            <section id="total-suggest" class="suggest-right">
+            </section>
+        </section>
+        <section class="mdl-layout__tab-panel" id="scroll-tab-2">
+            <section id="question-result" class="search-result">
+            </section>
+            <section id="question-suggest" class="suggest-right"></section>
+        </section>
+        <section class="mdl-layout__tab-panel" id="scroll-tab-3">
+            <section id="answer-result" class="search-result">
+            </section>
+        </section>
+        <section class="mdl-layout__tab-panel" id="scroll-tab-4">
+            <section id="user-result" class="search-result">
+            </section>
+        </section>
+        <section class="mdl-layout__tab-panel" id="scroll-tab-5">
+            <section id="article-result" class="search-result">
+            </section>
+        </section>
+        <section class="mdl-layout__tab-panel" id="scroll-tab-6">
+            <section id="topic-result" class="search-result">
+            </section>
+        </section>
+    </main>
+</div>
+</body>
+</html>
